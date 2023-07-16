@@ -1,32 +1,35 @@
-s = "anagram"
-t = "nagaram"
+from collections import Counter
 
 
-def isAnagram(s: str, t: str):
+def isAnagram_1(s: str, t: str) -> bool:
+    if len(s) != len(t):
+        return False
+
     s_dict = {}
     t_dict = {}
-    for letter in s:
-        try:
-            if s_dict[letter] == letter:
-                s_dict[letter] += 1
-        except Exception as e:
-            pass
-        s_dict[letter] = 0
 
-    for letter in t:
-        try:
-            if t_dict[letter] == letter:
-                t_dict[letter] += 1
-        except Exception as e:
-            pass
-        t_dict[letter] = 0
+    for i in range(0, len(s)):
+        s_dict[s[i]] = 1 + s_dict.get(s[i], 0)
+        t_dict[t[i]] = 1 + t_dict.get(t[i], 0)
 
-    return s_dict, t_dict
+    for key in s_dict:
+        if s_dict[key] != t_dict.get(key, 0):
+            return False
+
+    return True
+
+
+def isAnagram_2(s: str, t: str) -> bool:
+    return Counter(s) == Counter(t)
+
+
+def isAnagram_3(s: str, t: str) -> bool:
+    return sorted(s) == sorted(t)
 
 
 if __name__ == "__main__":
     s = "anagram"
     t = "nagaram"
-    s_result, t_result = isAnagram(s, t)
-    print(s_result)
-    print(t_result)
+    print(isAnagram_1(s, t))
+    print(isAnagram_2(s, t))
+    print(isAnagram_3(s, t))
