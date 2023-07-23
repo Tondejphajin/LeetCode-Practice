@@ -1,12 +1,8 @@
 def twoSum(nums: list[int], target: int) -> list[int]:
-    nums.sort()
-    newNums = [
-        (nums[i], nums[i + 1])
-        for i in range(0, len(nums) - 1)
-        if nums[i] + nums[i + 1] == target
-    ]
-    outputList = list(newNums[0])
-    return outputList
+    for num in nums:
+        remainding = target - num
+        if remainding in nums:
+            return [num, remainding]
 
 
 if __name__ == "__main__":
