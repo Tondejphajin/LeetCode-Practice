@@ -1,8 +1,12 @@
 def twoSum(nums: list[int], target: int) -> list[int]:
-    for num in nums:
+    hashMap = {}  # value: index
+
+    for index, num in enumerate(nums):
         remainding = target - num
-        if remainding in nums:
-            return [num, remainding]
+        if remainding in hashMap:
+            return [hashMap[remainding], index]
+        hashMap[num] = index
+    return
 
 
 if __name__ == "__main__":
