@@ -1,3 +1,4 @@
+# Neet code
 def twoSum(nums: list[int], target: int) -> list[int]:
     hashMap = {}  # value: index
 
@@ -7,6 +8,16 @@ def twoSum(nums: list[int], target: int) -> list[int]:
             return [hashMap[remainding], index]
         hashMap[num] = index
     return
+
+
+# My solution
+def twoSum(nums, target):
+    hashMap = {}
+    for i in range(0, len(nums)):
+        if (target - nums[i]) not in hashMap:
+            hashMap[nums[i]] = i
+        else:
+            return [hashMap.get(target - nums[i]), i]
 
 
 if __name__ == "__main__":
