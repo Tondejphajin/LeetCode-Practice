@@ -26,4 +26,4 @@ def topKfrequent(nums, k):
                 return result
 
 
-print(topKfrequent([1, 1, 1, 2, 2, 3], 2))
+print(topKfrequent([1], 1))
