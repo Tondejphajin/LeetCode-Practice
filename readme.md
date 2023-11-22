@@ -1,4 +1,4 @@
-# LeetCode Grinding Roadmap Progress
+# LeetCode Progress
 
 Below is the progress table for my LeetCode journey. Each topic is marked with the number of problems solved, and my personal notes and reflections.
 
